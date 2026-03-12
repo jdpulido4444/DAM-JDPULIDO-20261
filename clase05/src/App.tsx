@@ -9,31 +9,38 @@ import { colors } from './themes';
 import { appStyles } from './App.style';
 
 
+
 type AppProps = {
   atributo: String;
 }
+let count: number = 0;
 
-class App extends React.Component <AppProps> {
-private  count: number = 0;
-private label: string = 'Hello';
 
-handleOnPress = () => {
+const handleOnPress = (value: number) => {
   console.log("Press Button")
+  count += value;
+  console.log(count)
 }
+
+
+export class App extends React.Component <AppProps> {
   render(){
+
+    const label = "hello world"
+    const name = "hello world x2"
+
+    console.log("App Funcionando")
    return (
-      <SafeAreaProvider>
-        <StatusBar barStyle="light-content" backgroundColor={colors.white} />
-        <SafeAreaProvider style={appStyles.safeArea}>
-          <View style={appStyles.container}>
-            <CountScreen
-              label={this.label}
-              OnPress={this.handleOnPress}
-            ></CountScreen>
+
+          <View style={appStyles.safeArea}>
+            <view style={appStyles.container}>
+            <CountScreen label={label} OnPress={()=>handleOnPress(1)}></CountScreen>
+            <CountScreen label={name} OnPress={()=>handleOnPress(2)}></CountScreen>
+            </view>
           </View>
-        </SafeAreaProvider>
-      </SafeAreaProvider>
-  );
+
+     
+      );
   }
 }
 
