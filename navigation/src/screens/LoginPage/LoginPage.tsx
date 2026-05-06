@@ -6,7 +6,7 @@ import { LoginForm } from "../../components/organisms";
 const LoginPage = () => {
 
     return (
-        <AuthTemplate title="login">
+        <AuthTemplate title="login" subtitle="Inicia Sesión">
             <LoginForm></LoginForm>
         </AuthTemplate>
     )
