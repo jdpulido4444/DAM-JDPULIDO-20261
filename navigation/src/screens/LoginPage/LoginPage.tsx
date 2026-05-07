@@ -1,13 +1,26 @@
 import React from "react";
 import { AuthTemplate } from "../../components/templates";
 import { LoginForm } from "../../components/organisms";
+import { useNavigation } from "@react-navigation/native";
+import { AuthStackParamList } from "../../Routes";
+
+
 
 
 const LoginPage = () => {
 
+    const navigation = useNavigation<Navigation<AuthStackParamList>>();
+
+
+    const hanldeLogin = () =>{
+    
+        console.log("Tap en iniciar sesión")
+        navigation.navigate('Register')
+    }
+
     return (
         <AuthTemplate title="login" subtitle="Inicia Sesión">
-            <LoginForm></LoginForm>
+            <LoginForm onSubmit={hanldeLogin}></LoginForm>
         </AuthTemplate>
     )
 }
