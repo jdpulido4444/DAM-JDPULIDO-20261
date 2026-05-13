@@ -1,8 +1,9 @@
 import React from "react";
 import { AuthTemplate } from "../../components/templates";
-import { LoginForm } from "../../components/organisms";
-
-
+import { RegisterForm } from "../../components/organisms";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { AuthStackParamList } from "../../Routes";
 
 
 
@@ -10,9 +11,10 @@ import { LoginForm } from "../../components/organisms";
 
 const RegisterPage = () => {
 
-    const navigation = useNavigation<NaviteStackNavigationProp<AuthStackParamList>>();
+    const navigation = useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
 
-    const hanldeRegister = () =>{
+
+    const handleRegister = () =>{
     console.log("Tap en registro")
     navigation.navigate('Login')
     }   
@@ -20,7 +22,7 @@ const RegisterPage = () => {
 
     return (
         <AuthTemplate title="Registrarme" subtitle="Inicia Sesión">
-            <LoginForm onSubmit={hanldeRegister}></LoginForm>
+            <RegisterForm onSubmit={handleRegister}></RegisterForm>
         </AuthTemplate>
     )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { AuthTemplate } from "../../components/templates";
 import { LoginForm } from "../../components/organisms";
-import { useNavigation } from "@react-navigation/native";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 import { AuthStackParamList } from "../../Routes";
 
 
@@ -9,7 +9,7 @@ import { AuthStackParamList } from "../../Routes";
 
 const LoginPage = () => {
 
-    const navigation = useNavigation<Navigation<AuthStackParamList>>();
+    const navigation = useNavigation<NavigationProp<AuthStackParamList>>();
 
 
     const hanldeLogin = () =>{
@@ -20,7 +20,7 @@ const LoginPage = () => {
 
     return (
         <AuthTemplate title="login" subtitle="Inicia Sesión">
-            <LoginForm onSubmit={hanldeLogin}></LoginForm>
+            <LoginForm onSubmit={hanldeLogin} onSignUp={hanldeLogin}></LoginForm>
         </AuthTemplate>
     )
 }

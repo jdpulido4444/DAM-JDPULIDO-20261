@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, Text } from "react-native";
-
+import styles from './ButtonStyles'
 
 
 
@@ -15,7 +15,7 @@ const Button = ({ title, onSubmit }: ButtonProps) =>{
 
     return (
         <Pressable onPress={onSubmit}>
-            <Text>{title}</Text>
+            <Text style={styles.button}>{title}</Text>
         </Pressable>
     );
 
